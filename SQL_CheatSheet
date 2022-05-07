@@ -1,0 +1,62 @@
+select * from film; -- * to select all columns, else at the start you list the columns c1,c2 you wish to explore
+
+SELECT last_name, first_name FROM actor; -- the semi colon marks the end of a query
+
+-- SELECT CHALLENGE - Structure involves a business situation
+
+-- Send out a promotional email to existing customers, first and last name and actual emails. 
+
+SELECT * FROM customer; -- to view all the columns and discern what columns are needed for this case.
+
+SELECT first_name, last_name, email FROM customer;
+
+-- Distinct operates on a column and operates with or without parenthesis
+
+SELECT * FROM film;
+
+SELECT DISTINCT release_year FROM film; -- all films were released in 2006
+
+-- SELECT CHALLENGE: what ratings are available
+
+SELECT DISTINCT rating FROM film;
+
+-- COUNT: Needs a parenthesis seeing that it is a function, returns the count of number of rows
+
+SELECT COUNT (*) FROM film; -- the table has 1000 rows
+
+-- We can combine with other functions in SQL
+
+SELECT COUNT (DISTINCT (rating)) FROM film; -- it is important to specify the column
+
+SELECT * FROM payment; -- Data table has payment_id, customer_id, staff_id, rental_id, amount and payment_date
+
+SELECT COUNT (*) FROM payment; -- there are 14, 596 rows in our data table.
+
+SELECT COUNT (amount) FROM payment;
+
+-- WHERE - Use single quotes around string vectors
+
+SELECT COUNT (*) FROM film
+WHERE rating = 'PG-13' OR rental_rate >= 1; -- the output is that 151 films are rated PG-13 with a rental rate above 1, and 731 films are rated PG-13 or have a rental rating greater than 1.
+
+-- Challenge Number 1: A customer forgot their wallet at the store. We need to track their email to inform them. What is the email for the customer with the name Nancy Thomas?
+
+SELECT email FROM customer
+WHERE first_name = 'Nancy' AND last_name = 'Thomas';
+
+-- Ensure that the capitalisation and spelling for the names is correct
+
+-- Challenge Number 2: A customer wants to know what the movie "Outlaw Hanky" is about. Could you give them the description for the movie "Outlaw Hanky"?
+
+SELECT description FROM film
+WHERE title = 'Outlaw Hanky';
+
+-- Challenge Number 3: A customer is late for their movie return. We mail them a letter to their adress at 259 Ipoh Drive and should call them on the phone to let them know. Kindly get the phone number for the customer who lives at 259 Ipoh Drive
+
+SELECT phone FROM address
+WHERE address = '259 Ipoh Drive'
+
+-- ORDER BY - Used to sort rows based on a column value in either ascending or descending order
+
+
+
