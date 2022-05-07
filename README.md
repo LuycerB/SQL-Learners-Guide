@@ -1,2 +1,2 @@
 # SQL-Learners-Guide
-Journey through learning SQL
+A journey through learning SQL, from zero to hero
